@@ -1,7 +1,7 @@
 {
-    "name": "gontran/sylius-paybox-dev",
+    "name": "libre-informatique/sylius-paybox-dev",
     "type": "sylius-bundle",
-    "version": "0.3",
+    "version": "0.4.2",
     "description": "Paybox gateway for Sylius projects.",
     "keywords": ["Sylius", "Payum", "Paybox", "Symfony"],
     "license": "MIT",
@@ -19,7 +19,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Gontran\\SyliusPayboxBundle\\": "src/"
+            "Librinfo\\SyliusPayboxBundle\\": "src/"
         }
     }
 }
