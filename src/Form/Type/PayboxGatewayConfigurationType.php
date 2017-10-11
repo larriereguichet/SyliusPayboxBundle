@@ -1,6 +1,6 @@
 <?php
 
-namespace Gontran\SyliusPayboxBundle\Form\Type;
+namespace Librinfo\SyliusPayboxBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;

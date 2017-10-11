@@ -1,8 +1,8 @@
 <?php
 
-namespace Gontran\SyliusPayboxBundle\DependencyInjection;
+namespace Librinfo\SyliusPayboxBundle\DependencyInjection;
 
-use Gontran\SyliusPayboxBundle\PayboxParams;
+use Librinfo\SyliusPayboxBundle\PayboxParams;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 

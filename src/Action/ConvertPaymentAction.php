@@ -1,7 +1,7 @@
 <?php
-namespace Gontran\SyliusPayboxBundle\Action;
+namespace Librinfo\SyliusPayboxBundle\Action;
 
-use Gontran\SyliusPayboxBundle\PayboxParams;
+use Librinfo\SyliusPayboxBundle\PayboxParams;
 use Payum\Core\Action\ActionInterface;
 use Payum\Core\Bridge\Spl\ArrayObject;
 use Payum\Core\Exception\RequestNotSupportedException;

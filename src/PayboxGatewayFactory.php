@@ -1,13 +1,13 @@
 <?php
-namespace Gontran\SyliusPayboxBundle;
+namespace Librinfo\SyliusPayboxBundle;
 
-use Gontran\SyliusPayboxBundle\Action\AuthorizeAction;
-use Gontran\SyliusPayboxBundle\Action\CancelAction;
-use Gontran\SyliusPayboxBundle\Action\ConvertPaymentAction;
-use Gontran\SyliusPayboxBundle\Action\CaptureAction;
-use Gontran\SyliusPayboxBundle\Action\NotifyAction;
-use Gontran\SyliusPayboxBundle\Action\RefundAction;
-use Gontran\SyliusPayboxBundle\Action\StatusAction;
+use Librinfo\SyliusPayboxBundle\Action\AuthorizeAction;
+use Librinfo\SyliusPayboxBundle\Action\CancelAction;
+use Librinfo\SyliusPayboxBundle\Action\ConvertPaymentAction;
+use Librinfo\SyliusPayboxBundle\Action\CaptureAction;
+use Librinfo\SyliusPayboxBundle\Action\NotifyAction;
+use Librinfo\SyliusPayboxBundle\Action\RefundAction;
+use Librinfo\SyliusPayboxBundle\Action\StatusAction;
 use Payum\Core\Bridge\Spl\ArrayObject;
 use Payum\Core\GatewayFactory;
 
