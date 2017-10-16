@@ -39,6 +39,7 @@ class ConvertPaymentAction implements ActionInterface, GenericTokenFactoryAwareI
         $details[PayboxParams::PBX_EFFECTUE] = $token->getTargetUrl();
         $details[PayboxParams::PBX_ANNULE] = $token->getTargetUrl();
         $details[PayboxParams::PBX_REFUSE] = $token->getTargetUrl();
+        $details[PayboxParams::PBX_TYPECARTE] = 'CB';
 
         if (false == isset($details[PayboxParams::PBX_REPONDRE_A]) && $this->tokenFactory) {
             $notifyToken = $this->tokenFactory->createNotifyToken($token->getGatewayName(), $payment);
