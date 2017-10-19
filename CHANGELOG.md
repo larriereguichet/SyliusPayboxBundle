@@ -1,5 +1,12 @@
 # Change Log
 
+## [0.5.2](https://github.com/libre-informatique/SyliusPayboxBundle/tree/0.5.2) (2017-10-19)
+[Full Changelog](https://github.com/libre-informatique/SyliusPayboxBundle/compare/0.5.1...0.5.2)
+
+**Merged pull requests:**
+
+- Lisem fix & features [\#1](https://github.com/libre-informatique/SyliusPayboxBundle/pull/1) ([FanchTheSystem](https://github.com/FanchTheSystem))
+
 ## [0.5.1](https://github.com/libre-informatique/SyliusPayboxBundle/tree/0.5.1) (2017-10-06)
 [Full Changelog](https://github.com/libre-informatique/SyliusPayboxBundle/compare/0.4.2...0.5.1)
 
