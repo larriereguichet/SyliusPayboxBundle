@@ -1,6 +1,6 @@
 <?php
 
-namespace Gontran\SyliusPayboxBundle;
+namespace Librinfo\SyliusPayboxBundle;
 
 use Http\Message\MessageFactory;
 use Payum\Core\Exception\Http\HttpException;
