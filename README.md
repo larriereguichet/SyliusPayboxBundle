@@ -8,16 +8,16 @@ This plugin has been generated thanks to the payum composer Skeleton and thanks 
 
 1. Install this bundle:
 
-    ```bash
-    $ composer require libre-informatique/sylius-paybox-bundle
-    ```
+```bash
+$ composer require libre-informatique/sylius-paybox-bundle
+```
 
 2. In order to allow a previous denied/canceled payment to be completed, change payment state machine by importing config file in your `app/config/config.yml`
 
-    ```
+```
 imports:
         - { resource: "@LibrinfoSyliusPayboxBundle/Resources/config/app/config.yml" }
-    ```
+```
 
 3. Configure payment method in Sylius Admin panel
 
