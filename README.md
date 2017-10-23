@@ -23,5 +23,6 @@ imports:
 
 ## Complementary documentation
 
+
 - [Sylius Payments](http://docs.sylius.org/en/latest/book/orders/payments.html)
 - [Payum](https://github.com/Payum/Payum/blob/master/docs/index.md)
