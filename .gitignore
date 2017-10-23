@@ -1,4 +1,8 @@
+/nbproject
+/.php_cs.cache
+/composer.phar
 /composer.lock
 /vendor/
-/etc/build/*
-!/etc/build/.gitkeep
+/Resources/doc/_build
+/bin/phpunit
+*~
