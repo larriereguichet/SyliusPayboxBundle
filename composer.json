@@ -1,6 +1,6 @@
 {
     "name": "libre-informatique/sylius-paybox-bundle",
-    "type": "sylius-bundle",
+    "type": "symfony-bundle",
     "description": "Paybox gateway for Sylius projects.",
     "keywords": ["Sylius", "Payum", "Paybox", "Symfony"],
     "license": "MIT",
@@ -18,7 +18,7 @@
     ],
     "require": {
         "php": "^7.1",
-        "sylius/sylius": "^1.0.0"
+        "sylius/sylius": "^1.0"
     },
     "autoload": {
         "psr-4": {
