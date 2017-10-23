@@ -1,4 +1,4 @@
-# Sylius Paybox Bundle by Gontran [![License](https://img.shields.io/packagist/l/gontran/sylius-paybox.svg)](https://packagist.org/packages/gontran/sylius-paybox) [![Version](https://img.shields.io/packagist/v/gontran/sylius-paybox.svg)](https://packagist.org/packages/gontran/sylius-paybox)
+# Sylius Paybox Bundle by Gontran [![License](https://img.shields.io/packagist/l/libre-informatique/sylius-paybox-bundle.svg)](https://packagist.org/packages/gontran/sylius-paybox) [![Version](https://img.shields.io/packagist/v/libre-informatique/sylius-paybox-bundle.svg)](https://packagist.org/packages/libre-informatique/sylius-paybox-bundle)
 
 Paybox gateway for Sylius projects.
 
