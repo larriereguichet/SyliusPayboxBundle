@@ -7,6 +7,11 @@
     "license": "MIT",
     "authors": [
         {
+            "name":     "RomainSanchez",
+            "email":    "contact@libre-informatique.fr",
+            "homepage": "https://github.com/libre-informatique"
+        },
+        {
             "name":     "Geoffroy de Corbiac",
             "email":    "geoffroydecorbiac@gmail.com",
             "homepage": "https://github.com/gdecorbiac"
