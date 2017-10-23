@@ -14,7 +14,7 @@ final class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('paybox');
+        $rootNode = $treeBuilder->root('librinfo_sylius_paybox');
 
         return $treeBuilder;
     }
