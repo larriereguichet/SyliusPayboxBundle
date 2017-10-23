@@ -1,13 +1,13 @@
 <?php
 
-namespace Gontran\SyliusPayboxBundle\DependencyInjection;
+namespace Librinfo\SyliusPayboxBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
-final class GontranSyliusPayboxExtension extends Extension
+final class LibrinfoSyliusPayboxExtension extends Extension
 {
     /**
      * {@inheritdoc}

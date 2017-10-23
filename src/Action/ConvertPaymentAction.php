@@ -1,7 +1,7 @@
 <?php
-namespace Gontran\SyliusPayboxBundle\Action;
+namespace Librinfo\SyliusPayboxBundle\Action;
 
-use Gontran\SyliusPayboxBundle\PayboxParams;
+use Librinfo\SyliusPayboxBundle\PayboxParams;
 use Payum\Core\Action\ActionInterface;
 use Payum\Core\Bridge\Spl\ArrayObject;
 use Payum\Core\Exception\RequestNotSupportedException;
@@ -39,6 +39,7 @@ class ConvertPaymentAction implements ActionInterface, GenericTokenFactoryAwareI
         $details[PayboxParams::PBX_EFFECTUE] = $token->getTargetUrl();
         $details[PayboxParams::PBX_ANNULE] = $token->getTargetUrl();
         $details[PayboxParams::PBX_REFUSE] = $token->getTargetUrl();
+        $details[PayboxParams::PBX_TYPECARTE] = 'CB';
 
         if (false == isset($details[PayboxParams::PBX_REPONDRE_A]) && $this->tokenFactory) {
             $notifyToken = $this->tokenFactory->createNotifyToken($token->getGatewayName(), $payment);

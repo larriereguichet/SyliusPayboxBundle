@@ -1,7 +1,7 @@
 <?php
-namespace Gontran\SyliusPayboxBundle\Action;
+namespace Librinfo\SyliusPayboxBundle\Action;
 
-use Gontran\SyliusPayboxBundle\Api;
+use Librinfo\SyliusPayboxBundle\Api;
 
 use Payum\Core\Action\ActionInterface;
 use Payum\Core\Bridge\Spl\ArrayObject;
