@@ -24,5 +24,6 @@
         "psr-4": {
             "Librinfo\\SyliusPayboxBundle\\": "src/"
         }
-    }
+    },
+    "version": "dev-wip-lisem"
 }
