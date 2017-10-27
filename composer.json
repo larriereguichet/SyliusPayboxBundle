@@ -27,6 +27,6 @@
     },
     "version": "dev-wip-lisem",
     "require-dev": {
-        "phpunit/phpunit": "6.4"
+        "phpunit/phpunit": "^6.4"
     }
 }
