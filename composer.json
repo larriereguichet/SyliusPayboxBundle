@@ -25,5 +25,8 @@
             "Librinfo\\SyliusPayboxBundle\\": "src/"
         }
     },
-    "version": "dev-wip-lisem"
+    "version": "dev-wip-lisem",
+    "require-dev": {
+        "phpunit/phpunit": "6.4"
+    }
 }
