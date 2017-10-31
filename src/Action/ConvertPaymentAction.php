@@ -1,4 +1,15 @@
 <?php
+
+/*
+ * This file is part of the Blast Project package.
+ *
+ * Copyright (C) 2015-2017 Libre Informatique
+ *
+ * This file is licenced under the GNU LGPL v3.
+ * For the full copyright and license information, please view the LICENSE.md
+ * file that was distributed with this source code.
+ */
+
 namespace Librinfo\SyliusPayboxBundle\Action;
 
 use Librinfo\SyliusPayboxBundle\PayboxParams;
@@ -9,7 +20,6 @@ use Payum\Core\GatewayAwareTrait;
 use Payum\Core\Request\Convert;
 use Payum\Core\Security\GenericTokenFactoryAwareTrait;
 use Payum\Core\Security\GenericTokenFactoryAwareInterface;
-use Sylius\Component\Core\Model\OrderInterface;
 use Sylius\Component\Core\Model\PaymentInterface;
 
 class ConvertPaymentAction implements ActionInterface, GenericTokenFactoryAwareInterface
@@ -18,7 +28,7 @@ class ConvertPaymentAction implements ActionInterface, GenericTokenFactoryAwareI
     use GenericTokenFactoryAwareTrait;
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      *
      * @param Convert $request
      */
@@ -46,12 +56,11 @@ class ConvertPaymentAction implements ActionInterface, GenericTokenFactoryAwareI
             $details[PayboxParams::PBX_REPONDRE_A] = $notifyToken->getTargetUrl();
         }
 
-
         $request->setResult((array) $details);
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function supports($request)
     {

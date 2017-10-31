@@ -1,20 +1,27 @@
 <?php
+
+/*
+ * This file is part of the Blast Project package.
+ *
+ * Copyright (C) 2015-2017 Libre Informatique
+ *
+ * This file is licenced under the GNU LGPL v3.
+ * For the full copyright and license information, please view the LICENSE.md
+ * file that was distributed with this source code.
+ */
+
 namespace Librinfo\SyliusPayboxBundle\Action;
 
 use Librinfo\SyliusPayboxBundle\Api;
-
-use Payum\Core\Action\ActionInterface;
 use Payum\Core\Bridge\Spl\ArrayObject;
-use Payum\Core\GatewayAwareTrait;
 use Payum\Core\ApiAwareTrait;
 use Payum\Core\ApiAwareInterface;
 use Payum\Core\Action\GatewayAwareAction;
 use Payum\Core\Request\Capture;
 use Payum\Core\Exception\RequestNotSupportedException;
 use Payum\Core\Request\GetHttpRequest;
-use Payum\Core\Reply\HttpPostRedirect;
 
-class CaptureAction  extends GatewayAwareAction implements ApiAwareInterface
+class CaptureAction extends GatewayAwareAction implements ApiAwareInterface
 {
     use ApiAwareTrait;
 
@@ -23,9 +30,8 @@ class CaptureAction  extends GatewayAwareAction implements ApiAwareInterface
         $this->apiClass = Api::class;
     }
 
-
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      *
      * @param Capture $request
      */
@@ -41,12 +47,12 @@ class CaptureAction  extends GatewayAwareAction implements ApiAwareInterface
         if (isset($httpRequest->query['error_code'])) {
             $model->replace($httpRequest->query);
         } else {
-            $this->api->doPayment((array)$model);
+            $this->api->doPayment((array) $model);
         }
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function supports($request)
     {

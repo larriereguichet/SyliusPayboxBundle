@@ -1,5 +1,15 @@
 <?php
 
+/*
+ * This file is part of the Blast Project package.
+ *
+ * Copyright (C) 2015-2017 Libre Informatique
+ *
+ * This file is licenced under the GNU LGPL v3.
+ * For the full copyright and license information, please view the LICENSE.md
+ * file that was distributed with this source code.
+ */
+
 namespace Librinfo\SyliusPayboxBundle;
 
 use Http\Message\MessageFactory;
@@ -86,10 +96,10 @@ class Api
         // otherwise, use fallback url
         foreach ($servers as $server) {
             $doc = new \DOMDocument();
-            $doc->loadHTMLFile('https://'.$server.'/load.html');
+            $doc->loadHTMLFile('https://' . $server . '/load.html');
             $element = $doc->getElementById('server_status');
             if ($element && 'OK' == $element->textContent) {
-                return 'https://'.$server.'/'.$endpoint;
+                return 'https://' . $server . '/' . $endpoint;
             }
         }
         throw new RuntimeException('No server available.');
@@ -110,6 +120,7 @@ class Api
 
         return $string;
     }
+
     /**
      * Makes an array of parameters become a querystring like string.
      *
@@ -126,6 +137,7 @@ class Api
 
         return implode('&', $result);
     }
+
     /**
      * @return array
      */
