@@ -27,6 +27,7 @@
     },
     "version": "dev-wip-lisem",
     "require-dev": {
+        "symfony/phpunit-bridge": ">=3.2",
         "phpunit/phpunit": "^6.4"
     }
 }
