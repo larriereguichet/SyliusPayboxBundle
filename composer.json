@@ -17,12 +17,17 @@
         }
     ],
     "require": {
-        "php": "^7.1",
+        "php": ">=7.1",
         "sylius/sylius": "^1.0"
     },
     "autoload": {
         "psr-4": {
             "Librinfo\\SyliusPayboxBundle\\": "src/"
         }
+    },
+    "version": "dev-wip-lisem",
+    "require-dev": {
+        "symfony/phpunit-bridge": ">=3.2",
+        "phpunit/phpunit": "^6.4"
     }
 }

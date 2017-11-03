@@ -1,28 +1,36 @@
 <?php
+
+/*
+ * This file is part of the Blast Project package.
+ *
+ * Copyright (C) 2015-2017 Libre Informatique
+ *
+ * This file is licenced under the GNU LGPL v3.
+ * For the full copyright and license information, please view the LICENSE.md
+ * file that was distributed with this source code.
+ */
+
 namespace Librinfo\SyliusPayboxBundle\Action;
 
 use Payum\Core\Action\ActionInterface;
 use Payum\Core\Request\GetStatusInterface;
-use Payum\Core\Request\GetToken;
 use Payum\Core\Bridge\Spl\ArrayObject;
 use Payum\Core\Exception\RequestNotSupportedException;
 use Payum\Core\GatewayAwareTrait;
 use Payum\Core\GatewayAwareInterface;
-use Sylius\Bundle\PayumBundle\Request\GetStatus;
 use Sylius\Component\Payment\Model\PaymentInterface;
 
 class StatusAction implements ActionInterface, GatewayAwareInterface
 {
     use GatewayAwareTrait;
 
-    const RESPONSE_SUCCESS = "00000";
-    const RESPONSE_FAILED_MIN = "00100";
-    const RESPONSE_FAILED_MAX = "00199";
+    const RESPONSE_SUCCESS = '00000';
+    const RESPONSE_FAILED_MIN = '00100';
+    const RESPONSE_FAILED_MAX = '00199';
     //TODO: handle other response codes
 
-
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      *
      * @param GetStatusInterface $request
      */
@@ -32,9 +40,9 @@ class StatusAction implements ActionInterface, GatewayAwareInterface
 
         $model = ArrayObject::ensureArrayObject($request->getModel());
 
-
         if (null === $model['error_code']) {
             $request->markNew();
+
             return;
         }
 
@@ -54,16 +62,13 @@ class StatusAction implements ActionInterface, GatewayAwareInterface
                     }
                 }
                 $request->markCaptured();
-            }
-            else if (self::RESPONSE_FAILED_MIN <= $model['error_code'] && self::RESPONSE_FAILED_MAX >= $model['error_code']) {
+            } elseif (self::RESPONSE_FAILED_MIN <= $model['error_code'] && self::RESPONSE_FAILED_MAX >= $model['error_code']) {
                 $request->markFailed();
-            }
-            else {
+            } else {
                 $request->markCanceled();
             }
             unset($model['notification_pending']);
-        }
-        else {
+        } else {
             // To make Sylius display a correct message (PayumController:afterCaptureAction)
             // And because request is in state unknown
             // Let's mark the request with the state of the payment
@@ -87,12 +92,11 @@ class StatusAction implements ActionInterface, GatewayAwareInterface
                     $request->markCanceled();
                     break;
             }
-
         }
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function supports($request)
     {
