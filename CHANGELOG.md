@@ -1,6 +1,15 @@
 # Change Log
 
-## [0.5.2](https://github.com/libre-informatique/SyliusPayboxBundle/tree/0.5.2) (2017-10-19)
+## [0.6.4](https://github.com/libre-informatique/SyliusPayboxBundle/tree/0.6.4) (2017-11-03)
+[Full Changelog](https://github.com/libre-informatique/SyliusPayboxBundle/compare/0.5.2...0.6.4)
+
+**Merged pull requests:**
+
+- Lisem fix & features [\#5](https://github.com/libre-informatique/SyliusPayboxBundle/pull/5) ([FanchTheSystem](https://github.com/FanchTheSystem))
+- DevKit updates for SyliusPayboxBundle [\#4](https://github.com/libre-informatique/SyliusPayboxBundle/pull/4) ([BlastCI](https://github.com/BlastCI))
+- DevKit updates for SyliusPayboxBundle [\#2](https://github.com/libre-informatique/SyliusPayboxBundle/pull/2) ([BlastCI](https://github.com/BlastCI))
+
+## [0.5.2](https://github.com/libre-informatique/SyliusPayboxBundle/tree/0.5.2) (2017-10-23)
 [Full Changelog](https://github.com/libre-informatique/SyliusPayboxBundle/compare/0.5.1...0.5.2)
 
 **Merged pull requests:**
