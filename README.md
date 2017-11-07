@@ -16,7 +16,7 @@ $ composer require libre-informatique/sylius-paybox-bundle
 
 ```
 imports:
-        - { resource: "@LibrinfoSyliusPayboxBundle/Resources/config/app/config.yml" }
+        - { resource: "@SilSyliusPayboxBundle/Resources/config/app/config.yml" }
 ```
 
 3. Configure payment method in Sylius Admin panel

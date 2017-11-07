@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\SyliusPayboxBundle\Action;
+namespace Sil\Bundle\SyliusPayboxBundle\Action;
 
-use Librinfo\SyliusPayboxBundle\Api;
+use Sil\Bundle\SyliusPayboxBundle\Api;
 use Payum\Core\Bridge\Spl\ArrayObject;
 use Payum\Core\ApiAwareTrait;
 use Payum\Core\ApiAwareInterface;

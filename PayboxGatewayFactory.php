@@ -10,15 +10,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\SyliusPayboxBundle;
+namespace Sil\Bundle\SyliusPayboxBundle;
 
-use Librinfo\SyliusPayboxBundle\Action\AuthorizeAction;
-use Librinfo\SyliusPayboxBundle\Action\CancelAction;
-use Librinfo\SyliusPayboxBundle\Action\ConvertPaymentAction;
-use Librinfo\SyliusPayboxBundle\Action\CaptureAction;
-use Librinfo\SyliusPayboxBundle\Action\NotifyAction;
-use Librinfo\SyliusPayboxBundle\Action\RefundAction;
-use Librinfo\SyliusPayboxBundle\Action\StatusAction;
+use Sil\Bundle\SyliusPayboxBundle\Action\AuthorizeAction;
+use Sil\Bundle\SyliusPayboxBundle\Action\CancelAction;
+use Sil\Bundle\SyliusPayboxBundle\Action\ConvertPaymentAction;
+use Sil\Bundle\SyliusPayboxBundle\Action\CaptureAction;
+use Sil\Bundle\SyliusPayboxBundle\Action\NotifyAction;
+use Sil\Bundle\SyliusPayboxBundle\Action\RefundAction;
+use Sil\Bundle\SyliusPayboxBundle\Action\StatusAction;
 use Payum\Core\Bridge\Spl\ArrayObject;
 use Payum\Core\GatewayFactory;
 

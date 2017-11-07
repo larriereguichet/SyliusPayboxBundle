@@ -1,12 +1,12 @@
 services:
     sylius.form.type.gateway_configuration.paybox:
-        class: Librinfo\SyliusPayboxBundle\Form\Type\PayboxGatewayConfigurationType
+        class: Sil\Bundle\SyliusPayboxBundle\Form\Type\PayboxGatewayConfigurationType
         tags:
             - { name: sylius.gateway_configuration_type, type: paybox, label: sylius.payum_gateway_factory.paybox_checkout }
             - { name: form.type }
 
     sylius.payment.paybox.factory:
         class: Payum\Core\Bridge\Symfony\Builder\GatewayFactoryBuilder
-        arguments: [Librinfo\SyliusPayboxBundle\PayboxGatewayFactory]
+        arguments: [Sil\Bundle\SyliusPayboxBundle\PayboxGatewayFactory]
         tags:
             - { name: payum.gateway_factory_builder, factory: paybox }
