@@ -1,5 +1,5 @@
 {
-    "name": "libre-informatique/sylius-paybox-bundle",
+    "name": "sil-project/sylius-paybox-bundle",
     "type": "symfony-bundle",
     "description": "Paybox gateway for Sylius projects.",
     "keywords": ["Sylius", "Payum", "Paybox", "Symfony"],
