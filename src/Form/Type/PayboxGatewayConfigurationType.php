@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\SyliusPayboxBundle\Form\Type;
+namespace Triotech\SyliusPayboxBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;

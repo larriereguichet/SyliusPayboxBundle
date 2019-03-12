@@ -1,8 +1,0 @@
-# @TODO: Uncomment if paybox payment doesn't work well
-# 
-# winzou_state_machine:
-#     sylius_payment:
-#         transitions:
-#             complete:
-#                 from: [new, processing]
-#                 to: completed

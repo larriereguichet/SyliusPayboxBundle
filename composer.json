@@ -1,5 +1,5 @@
 {
-    "name": "libre-informatique/sylius-paybox-bundle",
+    "name": "triotech/sylius-paybox-bundle",
     "type": "symfony-bundle",
     "description": "Paybox gateway for Sylius projects.",
     "keywords": ["Sylius", "Payum", "Paybox", "Symfony"],
@@ -14,6 +14,11 @@
             "name":     "Geoffroy de Corbiac",
             "email":    "geoffroydecorbiac@gmail.com",
             "homepage": "https://github.com/gdecorbiac"
+        },
+        {
+            "name": "qkdreyer",
+            "email": "quentin.dreyer@triotech.fr",
+            "homepage": "https://www.triotech.fr"
         }
     ],
     "require": {
@@ -22,7 +27,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Librinfo\\SyliusPayboxBundle\\": "src/"
+            "Triotech\\SyliusPayboxBundle\\": "src/"
         }
     },
     "require-dev": {

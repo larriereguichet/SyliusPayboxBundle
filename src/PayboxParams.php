@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\SyliusPayboxBundle;
+namespace Triotech\SyliusPayboxBundle;
 
 /**
  * Interface PayBoxRequestParams.

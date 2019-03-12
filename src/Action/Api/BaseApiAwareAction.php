@@ -10,14 +10,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\SyliusPayboxBundle\Action\Api;
+namespace Triotech\SyliusPayboxBundle\Action\Api;
 
 use Payum\Core\Action\ActionInterface;
 use Payum\Core\ApiAwareInterface;
 use Payum\Core\ApiAwareTrait;
 use Payum\Core\GatewayAwareInterface;
 use Payum\Core\GatewayAwareTrait;
-use Librinfo\SyliusPayboxBundle\Api;
+use Triotech\SyliusPayboxBundle\Api;
 
 abstract class BaseApiAwareAction implements ActionInterface, GatewayAwareInterface, ApiAwareInterface
 {

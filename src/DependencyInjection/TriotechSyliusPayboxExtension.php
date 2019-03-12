@@ -10,14 +10,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\SyliusPayboxBundle\DependencyInjection;
+namespace Triotech\SyliusPayboxBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
-final class LibrinfoSyliusPayboxExtension extends Extension
+final class TriotechSyliusPayboxExtension extends Extension
 {
     /**
      * {@inheritdoc}

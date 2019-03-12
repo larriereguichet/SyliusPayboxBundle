@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\SyliusPayboxBundle\Action;
+namespace Triotech\SyliusPayboxBundle\Action;
 
 use Payum\Core\Action\ActionInterface;
 use Payum\Core\Request\GetStatusInterface;
@@ -46,33 +46,17 @@ class StatusAction implements ActionInterface, GatewayAwareInterface
             return;
         }
 
-        // Rely only on NotifyAction to update payment
-        if (isset($model['notification_pending'])) {
+        if (isset($model['notify'])) {
             $request->setModel($request->getFirstModel());
 
             if (self::RESPONSE_SUCCESS === $model['error_code']) {
-                // Because Sylius creates a new Payment when a payment has failed
-                // And because Notify Token can be called multiple times until payment has been granted
-                // Remove other payments that are not completed
-                $currentPayment = $request->getFirstModel();
-                $order = $currentPayment->getOrder();
-                foreach ($order->getPayments() as $payment) {
-                    if ($payment->getId() != $currentPayment->getId() && $payment->getState() != PaymentInterface::STATE_COMPLETED) {
-                        $order->removePayment($payment);
-                    }
-                }
                 $request->markCaptured();
             } elseif (self::RESPONSE_FAILED_MIN <= $model['error_code'] && self::RESPONSE_FAILED_MAX >= $model['error_code']) {
                 $request->markFailed();
             } else {
                 $request->markCanceled();
             }
-            unset($model['notification_pending']);
         } else {
-            // To make Sylius display a correct message (PayumController:afterCaptureAction)
-            // And because request is in state unknown
-            // Let's mark the request with the state of the payment
-            // Because IPN notification will always be handled by the server before user action
             $paymentState = $request->getFirstModel()->getState();
 
             switch ($paymentState) {

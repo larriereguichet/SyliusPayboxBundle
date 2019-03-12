@@ -10,17 +10,17 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\SyliusPayboxBundle;
+namespace Triotech\SyliusPayboxBundle;
 
-use Librinfo\SyliusPayboxBundle\DependencyInjection\LibrinfoSyliusPayboxExtension;
+use Triotech\SyliusPayboxBundle\DependencyInjection\TriotechSyliusPayboxExtension;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-final class LibrinfoSyliusPayboxBundle extends Bundle
+final class TriotechSyliusPayboxBundle extends Bundle
 {
     public function getContainerExtension()
     {
         if (null === $this->extension) {
-            $this->extension = new LibrinfoSyliusPayboxExtension();
+            $this->extension = new TriotechSyliusPayboxExtension();
         }
 
         return $this->extension;

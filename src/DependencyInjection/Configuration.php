@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\SyliusPayboxBundle\DependencyInjection;
+namespace Triotech\SyliusPayboxBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -23,7 +23,7 @@ final class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('librinfo_sylius_paybox');
+        $rootNode = $treeBuilder->root('triotech_sylius_paybox');
 
         return $treeBuilder;
     }

@@ -10,20 +10,23 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\SyliusPayboxBundle\Action;
+namespace Triotech\SyliusPayboxBundle\Action;
 
 use Payum\Core\Action\ActionInterface;
 use Payum\Core\Bridge\Spl\ArrayObject;
 use Payum\Core\Exception\RequestNotSupportedException;
-use Payum\Core\GatewayAwareTrait;
 use Payum\Core\GatewayAwareInterface;
+use Payum\Core\GatewayAwareTrait;
 use Payum\Core\Reply\HttpResponse;
 use Payum\Core\Request\GetHttpRequest;
 use Payum\Core\Request\Notify;
+use Payum\Core\Security\GenericTokenFactoryAwareInterface;
+use Payum\Core\Security\GenericTokenFactoryAwareTrait;
 
-class NotifyAction implements ActionInterface, GatewayAwareInterface
+class NotifyAction implements ActionInterface, GatewayAwareInterface, GenericTokenFactoryAwareInterface
 {
     use GatewayAwareTrait;
+    use GenericTokenFactoryAwareTrait;
 
     /**
      * {@inheritdoc}
@@ -38,8 +41,9 @@ class NotifyAction implements ActionInterface, GatewayAwareInterface
 
         $this->gateway->execute($httpRequest = new GetHttpRequest());
 
-        $httpRequest->query['notification_pending'] = true;
+        $httpRequest->query['notify'] = true;
         $details->replace($httpRequest->query);
+        $httpRequest->query['notify'] = false;
 
         throw new HttpResponse('OK', 200);
     }

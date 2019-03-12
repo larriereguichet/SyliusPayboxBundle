@@ -10,19 +10,20 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\SyliusPayboxBundle\Action;
+namespace Triotech\SyliusPayboxBundle\Action;
 
-use Librinfo\SyliusPayboxBundle\PayboxParams;
+use Triotech\SyliusPayboxBundle\PayboxParams;
 use Payum\Core\Action\ActionInterface;
 use Payum\Core\Bridge\Spl\ArrayObject;
 use Payum\Core\Exception\RequestNotSupportedException;
+use Payum\Core\GatewayAwareInterface;
 use Payum\Core\GatewayAwareTrait;
 use Payum\Core\Request\Convert;
-use Payum\Core\Security\GenericTokenFactoryAwareTrait;
 use Payum\Core\Security\GenericTokenFactoryAwareInterface;
+use Payum\Core\Security\GenericTokenFactoryAwareTrait;
 use Sylius\Component\Core\Model\PaymentInterface;
 
-class ConvertPaymentAction implements ActionInterface, GenericTokenFactoryAwareInterface
+class ConvertPaymentAction implements ActionInterface, GatewayAwareInterface, GenericTokenFactoryAwareInterface
 {
     use GatewayAwareTrait;
     use GenericTokenFactoryAwareTrait;
@@ -50,6 +51,11 @@ class ConvertPaymentAction implements ActionInterface, GenericTokenFactoryAwareI
         $details[PayboxParams::PBX_ANNULE] = $token->getTargetUrl();
         $details[PayboxParams::PBX_REFUSE] = $token->getTargetUrl();
         $details[PayboxParams::PBX_TYPECARTE] = 'CB';
+
+        // Prevent duplicated payment error
+        if (strpos($token->getGatewayName(), 'sandbox') !== false) {
+            $details[PayboxParams::PBX_CMD] = sprintf('%s-%d', $details[PayboxParams::PBX_CMD], time());
+        }
 
         if (false == isset($details[PayboxParams::PBX_REPONDRE_A]) && $this->tokenFactory) {
             $notifyToken = $this->tokenFactory->createNotifyToken($token->getGatewayName(), $payment);
