@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Triotech\SyliusPayboxBundle\Extension;
 
-use Doctrine\ORM\EntityManagerInterface;
 use Payum\Core\Extension\Context;
 use Payum\Core\Extension\ExtensionInterface;
 use Payum\Core\Model\Identity;
@@ -13,15 +12,19 @@ use Payum\Core\Request\GetStatusInterface;
 use Payum\Core\Request\Notify;
 use Sylius\Bundle\PayumBundle\Model\PaymentSecurityTokenInterface;
 use Sylius\Component\Payment\Model\PaymentInterface;
+use Sylius\Component\Resource\Repository\RepositoryInterface;
 
 final class UpdatePaymentSecurityTokenDetailsExtension implements ExtensionInterface
 {
-    /** @var EntityManagerInterface */
-    private $em;
+    /** @var RepositoryInterface */
+    private $paymentRepository;
+    /** @var RepositoryInterface */
+    private $paymentSecurityTokenRepository;
 
-    public function __construct(EntityManagerInterface $em)
+    public function __construct(RepositoryInterface $paymentRepository, RepositoryInterface $paymentSecurityTokenRepository)
     {
-        $this->em = $em;
+        $this->paymentRepository = $paymentRepository;
+        $this->paymentSecurityTokenRepository = $paymentSecurityTokenRepository;
     }
 
     /**
@@ -90,16 +93,14 @@ final class UpdatePaymentSecurityTokenDetailsExtension implements ExtensionInter
             return strpos($key, 'PBX_') === 0;
         }, ARRAY_FILTER_USE_KEY));
 
-        $paymentSecurityToken = $this->em->getRepository(PaymentSecurityTokenInterface::class);
-        $paymentSecurityTokens = $paymentSecurityToken->findBy(['details' => $token->getDetails()]);
+        $paymentSecurityTokens = $this->paymentSecurityTokenRepository->findBy(['details' => $token->getDetails()]);
         $details = new Identity($newPayment->getId(), $token->getDetails()->getClass());
 
         foreach ($paymentSecurityTokens as $paymentSecurityToken) {
             $paymentSecurityToken->setDetails($details);
-            $this->em->persist($paymentSecurityToken);
+            $this->paymentSecurityTokenRepository->add($paymentSecurityToken);
         }
 
-        $this->em->persist($newPayment);
-        $this->em->flush();
+        $this->paymentRepository->add($newPayment);
     }
 }
