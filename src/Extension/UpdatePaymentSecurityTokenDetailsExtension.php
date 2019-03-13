@@ -89,11 +89,17 @@ final class UpdatePaymentSecurityTokenDetailsExtension implements ExtensionInter
         $newPayment->setDetails(array_filter($payment->getDetails(), function ($key) {
             return strpos($key, 'PBX_') === 0;
         }, ARRAY_FILTER_USE_KEY));
+
+        $paymentSecurityToken = $this->em->getRepository(PaymentSecurityTokenInterface::class);
+        $paymentSecurityTokens = $paymentSecurityToken->findBy(['details' => $token->getDetails()]);
         $details = new Identity($newPayment->getId(), $token->getDetails()->getClass());
-        $token->setDetails($details);
+
+        foreach ($paymentSecurityTokens as $paymentSecurityToken) {
+            $paymentSecurityToken->setDetails($details);
+            $this->em->persist($paymentSecurityToken);
+        }
 
         $this->em->persist($newPayment);
-        $this->em->persist($token);
         $this->em->flush();
     }
 }
