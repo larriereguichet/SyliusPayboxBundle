@@ -14,6 +14,7 @@ services:
 
     sylius.payum_extension.update_payment_security_token_details:
         class: Triotech\SyliusPayboxBundle\Extension\UpdatePaymentSecurityTokenDetailsExtension
+        public: true # required by payum
         arguments:
             $paymentRepository: '@sylius.repository.payment'
             $paymentSecurityTokenRepository: '@sylius.repository.payment_security_token'
