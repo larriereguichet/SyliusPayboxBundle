@@ -50,6 +50,7 @@ class ConvertPaymentAction implements ActionInterface, GatewayAwareInterface, Ge
         $details[PayboxParams::PBX_EFFECTUE] = $token->getTargetUrl();
         $details[PayboxParams::PBX_ANNULE] = $token->getTargetUrl();
         $details[PayboxParams::PBX_REFUSE] = $token->getTargetUrl();
+        $details[PayboxParams::PBX_ATTENTE] = $token->getTargetUrl();
         $details[PayboxParams::PBX_TYPECARTE] = 'CB';
 
         // Prevent duplicated payment error

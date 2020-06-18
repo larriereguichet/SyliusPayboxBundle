@@ -46,6 +46,7 @@ interface PayboxParams
     const PBX_CMD = 'PBX_CMD';
     const PBX_PORTEUR = 'PBX_PORTEUR';
     const PBX_EFFECTUE = 'PBX_EFFECTUE';
+    const PBX_ATTENTE = 'PBX_ATTENTE';
     const PBX_ANNULE = 'PBX_ANNULE';
     const PBX_REFUSE = 'PBX_REFUSE';
     const PBX_REPONDRE_A = 'PBX_REPONDRE_A';
