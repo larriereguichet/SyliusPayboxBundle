@@ -13,16 +13,19 @@
 namespace Triotech\SyliusPayboxBundle\Action;
 
 use Triotech\SyliusPayboxBundle\Api;
+use Payum\Core\Action\ActionInterface;
 use Payum\Core\Bridge\Spl\ArrayObject;
 use Payum\Core\ApiAwareTrait;
 use Payum\Core\ApiAwareInterface;
-use Payum\Core\Action\GatewayAwareAction;
+use Payum\Core\GatewayAwareTrait;
+use Payum\Core\GatewayAwareInterface;
 use Payum\Core\Request\Capture;
 use Payum\Core\Exception\RequestNotSupportedException;
 use Payum\Core\Request\GetHttpRequest;
 
-class CaptureAction extends GatewayAwareAction implements ApiAwareInterface
+class CaptureAction implements GatewayAwareInterface, ApiAwareInterface, ActionInterface
 {
+    use GatewayAwareTrait;
     use ApiAwareTrait;
 
     public function __construct()
