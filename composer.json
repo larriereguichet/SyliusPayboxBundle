@@ -3,7 +3,7 @@
     "type": "symfony-bundle",
     "description": "Paybox gateway for Sylius projects.",
     "keywords": ["Sylius", "Payum", "Paybox", "Symfony"],
-    "license": "MIT",
+    "license": "GNU LGPL v3",
     "authors": [
         {
             "name":     "RomainSanchez",
