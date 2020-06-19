@@ -25,8 +25,13 @@ class StatusAction implements ActionInterface, GatewayAwareInterface
     use GatewayAwareTrait;
 
     const RESPONSE_SUCCESS = '00000';
+    const RESPONSE_CANCELED = '00001';
+    const RESPONSE_FAILED_CVV = '00004';
+    const RESPONSE_FAILED_VALIDITY = '00008';
+    const RESPONSE_FAILED_CARD_UNAUTHORIZED = '00021';
     const RESPONSE_FAILED_MIN = '00100';
     const RESPONSE_FAILED_MAX = '00199';
+    const RESPONSE_PENDING_VALIDATION = '99999';
     //TODO: handle other response codes
 
     /**
@@ -46,22 +51,40 @@ class StatusAction implements ActionInterface, GatewayAwareInterface
             return;
         }
 
+        // Rely only on NotifyAction to update payment
         if (isset($model['notify'])) {
             $request->setModel($request->getFirstModel());
 
             if (self::RESPONSE_SUCCESS === $model['error_code']) {
                 $request->markCaptured();
-            } elseif (self::RESPONSE_FAILED_MIN <= $model['error_code'] && self::RESPONSE_FAILED_MAX >= $model['error_code']) {
+            } elseif (self::isFailureErrorCode($model['error_code'])) {
                 $request->markFailed();
+            } elseif (self::RESPONSE_PENDING_VALIDATION === $model['error_code']) {
+                $request->markPending();
             } else {
                 $request->markCanceled();
             }
         } else {
+            // To make Sylius display a correct message (PayumController:afterCaptureAction)
+            // And because request is in state unknown
+            // Let's mark the request with the state of the payment
+            // Because IPN notification will always be handled by the server before user action
             $paymentState = $request->getFirstModel()->getState();
 
             switch ($paymentState) {
                 case PaymentInterface::STATE_NEW:
-                    $request->markNew();
+                    // Request is marked pending in case of success whereas the payment is still marked as new,
+                    // meaning the IPN didn't reach the capture endpoint before the user return to the shop.
+                    // (when testing locally the IPN typically won't reach the endpoint)
+                    if (self::RESPONSE_SUCCESS === $model['error_code'] || self::RESPONSE_PENDING_VALIDATION === $model['error_code']) {
+                        $request->markPending();
+                    } elseif (self::isFailureErrorCode($model['error_code'])) {
+                        $request->markFailed();
+                    } elseif (self::RESPONSE_CANCELED === $model['error_code']) {
+                        $request->markCanceled();
+                    } else {
+                        $request->markNew();
+                    }
                     break;
 
                 case PaymentInterface::STATE_COMPLETED:
@@ -88,5 +111,19 @@ class StatusAction implements ActionInterface, GatewayAwareInterface
             $request instanceof GetStatusInterface &&
             $request->getModel() instanceof \ArrayAccess
         ;
+    }
+
+    protected static function isFailureErrorCode($errorCode)
+    {
+        if (
+            self::RESPONSE_FAILED_MIN <= $errorCode && self::RESPONSE_FAILED_MAX >= $errorCode ||
+            $errorCode === self::RESPONSE_FAILED_CVV ||
+            $errorCode === self::RESPONSE_FAILED_VALIDITY ||
+            $errorCode === self::RESPONSE_FAILED_CARD_UNAUTHORIZED
+        ) {
+            return true;
+        }
+
+        return false;
     }
 }
