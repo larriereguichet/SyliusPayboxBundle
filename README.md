@@ -25,21 +25,21 @@ composer require triotech/sylius-paybox-bundle:dev-master@dev
 - https://www.paybox.com/espace-integrateur-documentation/comptes-de-tests/
 
 **Merchant BO**
-> https://preprod-admin.paybox.com/
-> 199988832
+> https://preprod-admin.paybox.com/\
+> 199988832\
 > 1999888I
 
 **Testing card**
 - https://www.paybox.com/espace-integrateur-documentation/cartes-de-tests/
-> **CB**
-> 1111222233334444
-> *any valid future date*
+> **CB**\
+> 1111222233334444\
+> *any valid future date*\
 > 123
 
 ## History
 
 This plugin has been forked from [triotech/sylius-paybox-bundle](https://git.triotech.fr/composer/sylius-paybox-bundle/)
 
-> which was previously forked from [libre-informatique/sylius-paybox-bundle](https://github.com/sil-project/SyliusPayboxBundle)
-> which was previously forked from [gdecorbiac/SyliusPayboxBundle](https://github.com/gdecorbiac/SyliusPayboxBundle)
+> which was previously forked from [libre-informatique/sylius-paybox-bundle](https://github.com/sil-project/SyliusPayboxBundle)\
+> which was previously forked from [gdecorbiac/SyliusPayboxBundle](https://github.com/gdecorbiac/SyliusPayboxBundle)\
 > which was previously inspired by [remyma/payum-paybox](https://github.com/remyma/payum-paybox)
