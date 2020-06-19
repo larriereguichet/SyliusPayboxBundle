@@ -41,5 +41,5 @@ composer require triotech/sylius-paybox-bundle:dev-master@dev
 This plugin has been forked from [triotech/sylius-paybox-bundle](https://git.triotech.fr/composer/sylius-paybox-bundle/)
 
 > which was previously forked from [libre-informatique/sylius-paybox-bundle](https://github.com/sil-project/SyliusPayboxBundle)
-> which was previously forked from https://github.com/gdecorbiac/SyliusPayboxBundle
-> which was previously inspired by https://github.com/remyma/payum-paybox
+> which was previously forked from [gdecorbiac/SyliusPayboxBundle](https://github.com/gdecorbiac/SyliusPayboxBundle)
+> which was previously inspired by [remyma/payum-paybox](https://github.com/remyma/payum-paybox)
